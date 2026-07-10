@@ -1,0 +1,24 @@
+name: Build LaTeX PDF
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Compile Chinese PDF
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: elegantbook-cn.tex
+          latexmk_use_xelatex: true
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: elegantbook-cn-pdf
+          path: elegantbook-cn.pdf

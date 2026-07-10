@@ -27,17 +27,18 @@ ctanzip          = module
 excludefiles     = {"*~"}
 textfiles        = {"*.md", "LICENSE", "*.lua", "*.cls", "*.bib", "*.tex"}
 typesetexe       = "latexmk -pdf"
-typesetfiles     = {module .. "-cn.tex", module .. "-en.tex"}
+typesetfiles     = {module .. "-cn.tex"}
 typesetopts      = "-interaction=nonstopmode"
 typesetruns      = 1
 typesetsuppfiles = {"*.cls", "*.bib"}
 imagesuppdir     = "image"
 figuresuppdir    = "figure"
+chapterssuppdir  = "chapters"
 specialtypesetting = specialtypesetting or {}
 specialtypesetting[module .. "-cn.tex"] = {cmd = "latexmk -pdfxe"}
 binaryfiles      = {"*.png", "*.jpg", "*.pdf"}
-sourcefiles      = {"*.cls", "*.bib"}
-docfiles         = {"*.pdf", "*.md", "LICENSE", module .. "-cn.tex", module .. "-en.tex"}
+sourcefiles      = {"*.cls", "*.bib", chapterssuppdir .. "/*.tex"}
+docfiles         = {"*.pdf", "*.md", "LICENSE", module .. "-cn.tex"}
 
 uploadconfig = {
   pkg          = module,
@@ -73,7 +74,7 @@ function docinit_hook()
     cp(glob, currentdir, typesetdir)
   end
 
-  for _, subdir in pairs({imagesuppdir, figuresuppdir}) do
+  for _, subdir in pairs({imagesuppdir, figuresuppdir, chapterssuppdir}) do
     local dest = typesetdir .. "/" .. subdir
     mkdir(dest)
     cp("*", subdir, dest)
@@ -100,6 +101,9 @@ function copyctan()
 
   mkdir(target .. "/" .. imagesuppdir)
   cp("*", imagesuppdir, target .. "/" .. imagesuppdir)
+
+  mkdir(target .. "/" .. chapterssuppdir)
+  cp("*.tex", chapterssuppdir, target .. "/" .. chapterssuppdir)
 
   return 0
 end
