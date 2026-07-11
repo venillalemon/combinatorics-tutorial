@@ -1,0 +1,48 @@
+\chapter{Combinatorics 4.28}
+\label{ch:250428}
+
+\section{"定理三"}
+
+给定最优染色，对于每种颜色一定存在一个该颜色的顶点，它与所有其他颜色相邻.（反之这种颜色可以不使用）
+
+\section{回顾概率方法}
+
+我们称同色 $K_k$ 为坏集合. 考虑 $\# \text{\{bad k-sets\}}$ 的期望 $\mathbb{E}[X]={n\choose k}2^{1-{k\choose 2}}:=f(n)$. 若固定 $n$, 对每个 $G$ 都有一个 bad k-sets 个数, 它们平均下来有 $f(n)$ 这么多. 其中有一个 $G$ 同色，bad k-sets 有 ${n\choose k}$ 个.
+
+\textbf{Alteration 方法.} 固定 $k=20$，用有一张表格记录 $f(n)$，用于证明 $r(20,20)$ 的下界. 对 $n$ 阶图，一定能找到一种黄蓝染色，bad k-sets 有小于 $f(n)$ 个. 去掉每个 set 中的一个顶点即可得到无同色 k-sets 的图，故 $r(k,k)>n-f(n)$.
+
+\notefigure{notes/250428-01.png}
+
+\section{无三角形图可拥有任意大染色数}
+
+Mycielski 的影子图，Tutte 抽屉原理，Zykm 编码原理, Erdős line graph
+
+\notefigure{notes/250428-02.png}
+
+\textbf{Another Proof.} (Erdős)
+
+$G_n=(V,E),V={[n]\choose 2},E=\{(ij,jk):i<j<k\}$ 相当于将 $K_n$ 的边看成顶点. 注意必须要 $i<j<k$，因此这张图最小圈为 $C_4=\{02,23,12,24,02\}$. 另有 $C_5=\{01,12,23,34,13,01\}$.
+
+由 Ramsey, 当 $n>r_k(3)$, $K_n$ 的 k-染色必有同色三角形, 因此任意的 $G$ 中 k-染色都不合法（$K_n$ 中有三角形同色，那么$K_n$ 中有相邻的边同色， $G_n$ 有相邻的顶点同色，由此看出 Ramsey 给出的条件较强）.
+
+问题：求 $\chi(G_{2025})$. 二进制 相同前缀长度 如何证明 $\chi(G_{2025})=11$?
+
+(proposed by modist) 考虑 $G_{2025}$ 所有边的 c-染色，记 $C(j)=\{\phi(i,j):1\leq i\leq j-1\}$, 那么不同的 $C(j)$ 一定互不相同, 但是颜色只有 $c$ 种. 得到 $2025\leq 2^c$, 即 $c>10$. 剩下的就是说明 $C(j)\not=C(i)$ for $j>i$: 如果两个集合相等，那么 $\phi(i,j)\in C(j)$ 可以推导出 $\phi(i,j)\in C(i)$, 则存在一个 $z<i$ $\phi(z,i)=\phi(i,j)$, 矛盾.
+
+\section{求证 $\chi\geq\omega+2\Rightarrow|G|\geq 10$ (finale de autumne 2023)}
+
+我们已经有 $C_5\cup C_5$ 的例子, 两个 $C_5$ 之间全部连边，$\chi=6,\omega=4$. 往证 $|G|\leq 9$ 的图必定 $\chi\leq\omega+1$，如果 $|G|=9$ 的图满足，那么任何小于 9 的图 $G$ 也满足（添加两个孤立点或者添加两个全连接点）. 因此讨论 $|G|=9$, 对 $\omega$ 分类讨论，逐个证明 $\chi\leq\omega+1$.
+
+\section{否定 $\chi\geq\omega+k\Rightarrow|G|\geq 5k$}
+
+已有的例子: $k$ 个 $C_5$ 互相两两全部相连. $\omega=2k,\chi=3k,n=5k$, 发现 $\chi=\omega+k,|G|=5k$.
+
+但是这其实是错误的，用渐近分析. 我们在 \href{250427}{Lecture 11} 证过 $r(4,t)>O(t^{1.5-\epsilon})$, 也就是说，存在一个阶数小于 $O(t^{1.5-\epsilon})$ 的图 $\alpha<4,\omega<t$. 因此 $\chi\geq\frac{n}{\alpha}\sim\frac{O(t^{1.5-\epsilon})}{3}$，得到 $\chi-\omega\sim\frac{n}{3}$, $|G|\sim3(\chi-\omega)$.
+
+\section{Erdős: 存在大于等于边数一半的割}
+
+假设我们有一个分割. 每个点同向边大于对向边时，调整至另一侧，该操作一定会停止，因为每次操作后割变大. 最后，根据握手引理，每个点对向边大于同向边，总的来说也是这样，因此割 $\geq\frac{m}{2}$.
+
+另证. 排成一排，按顺序归到左边和右边，如果一个点到前面的邻居左>右，把这个点归为右边. 这里用计数一次的握手引理.
+
+概率方法，相当于对顶点染色，每条边给一个随机变量，异色为1，同色为0. 则全图内异色边个数的期望为 $\frac{m}{2}$.

@@ -1,0 +1,150 @@
+\chapter{Combinatorics 4.14}
+\label{ch:250414}
+
+\section{Independent Set and Chromatic number}
+
+\notefigure{notes/250414-01.png}
+
+考虑 $K_n$ 的影子图，$\alpha(G)=n$
+
+\section{染色的脑子}
+
+\notefigure{notes/250414-02.png}
+
+对顺序不敏感：$K_n,K_{a_1,a_2,\dots,a_k}$，$C_{2k+1}$ （由于度数2，不可骗到3以上）
+
+敏感：$C_{2n}(n>2)$,——先染一个，再染和它距离是3的点，被骗了
+
+如果 $\chi=2$, $\chi_\pi$ 可以任意大（点数也随着它变大）
+
+$T_k$ 为有根树，满足存在一种顺序使得根会被染色为 $k$. $T_{k+1}$ 是一个根节点连所有 $T_1\sim T_k$ 的根
+
+$\chi=2$, 要求 $\chi_\pi=50$, 最少需要几个点？考虑二分图，每个点除了自己对应的点不连，其他都连接。每个点依次被骗，如果点数100，可以做到50. 去掉最后两个点，连接，可做到 $2\chi_\pi-2$. 可证明至少需要 $2\chi_\pi-2$. （How?）
+
+$\exists \pi, \;\chi_\pi=\chi$, 将每个颜色按顺序排即可，可得到 $\chi_\pi\leq\chi$ 或者 $\forall v\;\phi_\pi(v)\leq\phi(v)$
+
+字典序最小：按照颜色1,2,3顺序比较大小
+
+\begin{quotation}
+"脑子"的经典应用：regalloc(SSA) 中, 染色数=最大活跃变量数
+
+考虑干涉图，按照时间顺序对每个变量染色，$v_i$ 和前面哪些变量干涉取决于活跃区域是否相交，因此 $\{v_j:v_iv_j\in E, j<i\}$ 一定构成一个完全图，$d_\pi(v)<\omega(G)$, 归纳可得每个染色都 $\phi(v)\leq\omega(G)$, 即 $\chi(G)=\omega(G)$.
+\end{quotation}
+
+\section{Erdös-Sós: 证明 $\overline{d}\geq k\Rightarrow \exists P_{k+1}$}
+
+\begin{quotation}
+\textbf{Thm.} (Dirac) 连通且 $\delta\geq k\Rightarrow \exists P_{2k+1}$ 或 Hamilton Cycle
+\end{quotation}
+
+为什么这么奇怪？考虑 k=100, $K_{100}+K_{100}$ 即可没有 $2k+1$ path 且无 H.C.
+
+\section{Hamilton Cycle}
+
+\notefigure{notes/250414-03.png}
+
+无需连通，因为如果 $d(u)+d(v)\geq n$, 那么一定有公共邻居.
+
+\textbf{Pf.} of Dirac
+
+$C_t(t<n)\to P_{t+1}$
+
+$P_{t}(t\leq 2k)\to P_{t+1}\text{ or }C_t$
+
+\notefigure{notes/250414-04.png}
+
+$C_t$ 要从已知的 $P_t$ 中选出，由于 $t\leq 2k$, 有集合 $A=\{i:v_1v_i\in E\},B=\{j:v_{j-1}v_t\in E\}\subseteq[2,t]$, 因此两个集合一定有重复的，这样就有 $C_t$.
+
+\section{Proof of Erdös-Sós Conjecture}
+
+$\overline{d}\geq k$ 等价于 $m\geq\frac{nk}{2}$, 去掉度数 $\leq k/2$ 扔掉（它和连接它的所有边）之后, 得到子图 $H$, $\delta(H)>\frac{k}{2}$. 去掉点的过程平均度数不减, 就是一直满足 $\overline{d}\geq k$.
+
+若得到 $H$ 不连通，选一个连通分量即可，最小度数不会变小, 有 $\delta(H^\prime)>\frac{k}{2}$, 根据 Dirac, $H^\prime$ 中存在 $P_{k+1}$ 或一个 Hamilton Cycle. 如何解决 H.C. ?
+
+这个连通分量满足 $\overline{d}\geq k$, 因此存在一个点 $d(v)\geq k$, 故连通分量中必有 $k+1$ 个点. 这样我们不怕Hamilton Cycle, 因为即使有, 它长度 $\geq k+1$, 自然包含 $P_{k+1}$.
+
+\section{染色：另一种视角}
+
+\notefigure{notes/250414-05.png}
+
+$\chi$ 染色，就是把 $G$ 分割成 $\chi$ 个独立集. 全部边都是国际边 (k部图).
+
+$n=100,\chi=10$ $\min m=45,\max m=4500$
+
+根据定理 040702，$\chi=10$, 那么存在10个点 $\deg\geq 9$，握手
+
+\section{Nordhaus-Gaddum 关于补图染色的定理}
+
+\begin{quotation}
+\textbf{Thm.} (Nordhaus-Gaddum) $G,H$ 互为补图，那么 $\chi_1\chi_2\geq n$, $\chi_1+\chi_2\leq n+1$.
+\end{quotation}
+
+推论：$n\leq\chi_1\chi_2\leq\frac{(n+1)^2}{4}$, $2\sqrt{n}\leq\chi_1+\chi_2\leq n+1$
+
+$\chi_1\chi_2=n,\chi_1+\chi_2=n+1$: $G=K_n,H=K_1\times n$
+
+$\chi_1\chi_2=\frac{(n+1)^2}{4}$: 令 $n=2k-1$, 例子是 $G=K_{k}\cup k-1$ 个孤立点.
+
+$\chi_1+\chi_2=2\sqrt{n}$: 令 $n=k^2$, 例子是 $G=K_{k}\times k$.
+
+\textbf{Pf.}
+
+\[
+\chi(G)\geq\frac{n}{\alpha(G)}=\frac{n}{\omega(H)}\geq\frac{n}{\chi(H)}
+\]
+
+另: 对于最优染色 $\phi_G,\phi_H$, $\sigma:V\mapsto[\chi(G)]\times[\chi(H)]:\sigma(v)=(\phi_G(v),\phi_H(v))$, 是一个单射（uv存在于GH的至少一个中）, 这还可以推广到，将 $G$ 的边进行 $k$染色，$n\leq\chi_1\dots\chi_k$.
+
+归纳，首先 $n=2$, $\chi(G)+\chi(H)=3$; 假设对所有比 $K_n$ 小的图都成立，那么去掉 $K_n$ 的一个点, $G,H$ 变成 $G^\prime,H^\prime$.
+
+\notefigure{notes/250414-06.png}
+
+三个式子取等不可能同时发生，因为多染一种颜色需要 $v$ 在 $G,H$ 中分别有至少 $\chi(G),\chi(H)$ 个邻居, 加起来是 $n$. 但是 $d(v)=n-1$
+
+另：G度数从大到小排，无脑染色，G从左往右染，H从右往左染，记录第一个出现$\chi$的地方, G->i, H->j
+
+\notefigure{notes/250414-07.png}
+
+如果 $i\leq j$, $\chi_\pi(G)\leq i, \chi_\pi(H)\leq j, i+j\leq n+1$;
+
+如果 $i>j$, $\chi_\pi(G)\leq d_G(v_i)+1,\chi_\pi(H)\leq d_H(v_j)+1=n-d_G(v_j),d_G(v_j)\geq d_G(v_i)$.
+
+都有 $\chi_\pi(G)+\chi_\pi(H)\leq n+1$. 综合 $\chi\leq\chi_\pi$ 即可.
+
+\section{Ramsey Number}
+
+要证 $r(y,b)\leq N$ 即证任意 $K_N$ 二染色必有...
+
+要证 $r(y,b)> M$ 即证存在 $K_M$ 二染色无...
+
+$n\to(b,y)$
+
+\section{证明 $6\to(3,3)$ （定理1）}
+
+经典随便取点，存在3同色
+
+\section{证明 $9\to(3,4)$ （定理1.5）}
+
+- 存在 $v$ 有 4b, 那4个点要么 b$K_2$, 要么 y$K_4$
+
+- 存在 $v$ 有 6y, 那6个点要么 b$K_3$, 要么 y$K_3$
+
+- 任何点都是 3b5y, 考虑b色的图，发现违背 shaking hands lemma（3*9）
+
+\section{证明 $18\to(4,4)$ （定理2）}
+
+任取点存在同色9条出边
+
+- 9出边同b色，那9个点要么 b$K_3$, 要么 y$K_4$
+
+- 9出边同y色，那9个点要么 y$K_3$, 要么 b$K_4$
+
+\section{定理3 \& 定理4}
+
+\notefigure{notes/250414-08.png}
+
+存在最小的
+
+$r(y,b)\leq r(y-1,b)+r(y,b-1)$
+
+\textbf{$k<r(y,b)$, 当且仅当存在一个 $k$ 阶图 $\omega<y,\alpha<b$.}

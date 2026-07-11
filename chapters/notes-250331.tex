@@ -1,0 +1,78 @@
+\chapter{Combinatorics 3.31}
+\label{ch:250331}
+
+\section{$(1,\sqrt{2}]$}
+
+\notefigure{notes/250331-01.png}
+
+没有 $K_4$: 如果凸包是四边形，每条边>1, 一定存在一个对角线>$\sqrt{2}$. 因为总有一个角 $\leq\frac{\pi}{2}$, 余弦定理; 如果凸包是三角形/直线，更不可能.
+
+因此考虑 $|E|=t(n,3)$, 三部图.
+
+\section{三角形数量}
+
+\notefigure{notes/250331-02.png}
+
+\[
+\#\bigtriangleup=\frac{1}{3}\sum_{(u,v)\in E}|N(u)\cap N(v)|
+\]
+
+用 Mantel 定理的推论，如果有 $k$ 个三角形，那么最多去掉 $k$ 条边，就得到一个无三角形图, 即 $m-k\leq\frac{n^2}{4}$
+
+\section{$\Delta\leq50,\alpha\leq99$, 问 $\max n=|G|$}
+
+\notefigure{notes/250331-03.png}
+
+5050 阶图若 $\alpha\leq 99$, 那么边数一定大于 $c(5050,99)$, 考虑平均度数, >50即可.
+
+5050 阶图若 $\Delta\leq50$, 那么 $\alpha\geq 100$. 选一个点杀掉最多其他50个点, 99轮之后至少还剩1个 survivor + 99 个 selected, 构成一个 100 阶独立集.
+
+(不过我用的是补图+Turan)
+
+\begin{quotation}
+\textbf{Thm.} $\alpha\geq\frac{n}{\Delta+1}$.
+\end{quotation}
+
+直观上，先选出独立集 $D$，剩下所有的点一定是某个独立集内点的邻居。因此 $n\leq\sum_{v\in D}(N(v)+1)\leq\alpha(\Delta+1)$.
+
+\begin{quotation}
+\textbf{Thm.} (Turan) $\alpha\geq\frac{n}{\overline{d}+1}$.
+\end{quotation}
+
+之前证明 Turan 定理的时候用到了 $\sum_{v}\frac{1}{\deg v+1}\leq \alpha$, 用jensen即可.
+
+\section{树的个数}
+
+\notefigure{notes/250331-04.png}
+
+Prufer 序列告诉我们，标号树的个数是 $n^{n-2}$, 因此 $t(n)\geq\frac{n^{n-2}}{n!}\sim O(\frac{e^n}{n^{2.5}})$ (进行任意标号置换后可能有树重复，因为有一些点是地位等价的).
+
+有根无标号树的数量>=无根无标号树的数量（有根树还需要管子节点的顺序）
+
+因此我们寻找一种唯一表示这个有根无标号树的方法，对这个树进行深搜，子节点从左往右，记下沉为1，回溯为0，形成 2(n-1) 长度的 01 序列，因此至多 $4^n$ 种；实际上，还需满足任意时刻1的个数大于等于0的个数.
+
+\section{至少几片叶子}
+
+\notefigure{notes/250331-05.png}
+
+代数关系 or 极长路
+
+极长路：两端不能延伸（即其邻居都在路中）
+
+借用极长路的方法，挑出树上度数最大的点，那么从这个点出发，肯定会有 $\Delta$ 个叶子.
+
+\section{割点}
+
+\notefigure{notes/250331-06.png}
+
+一个图 $|G|-k$ 条边, 那么有至少 $k$ 个不同的连通块；$G$ 无 cycle 时可以取等 (加一条边，最多减一个连通块).
+
+用生成树/极长路的想法，其实有类似的地方.
+
+\section{树是一个二部图}
+
+\notefigure{notes/250331-07.png}
+
+首先挑一个蓝色的节点作为根（如果没有蓝色，那么证好了）；然后假设红色都不是叶子，考虑单射，每个红色节点映射到它的一个蓝色子节点，因此红色个数 $\leq$ 蓝色-1.
+
+另，如果没有红色叶子，那么红色点 $\deg\geq2$. $|R|+|B|-1=\sum_{v\in R}\deg v\geq2|R|$.

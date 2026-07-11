@@ -1,0 +1,74 @@
+\chapter{Combinatorics 5.21}
+\label{ch:250521}
+
+\section{cont'd distinct distances}
+
+目标：有一个点能看到 $\geq n^{0.8}$ 的距离，反设每个点看到的距离数量都小于 $n^{0.8}$，假设这个数 $\leq M=\epsilon n^{0.8}$, 欲导出矛盾.
+
+每个点往外画 $M$ 个圆，其他所有点都在圆组上，圆上点相邻的连边形成 $H$，每个圆心导出 n-1 个边，包括自环和二边形；去掉坏的圆，边数-2nM，最后 $H$ 边数大于 $n^2-o(n^2)$
+
+交点数最多 ${n\choose 2}\times 2M^2$
+
+$n^2 M^2\geq \text{Cr}\geq\frac{m^3}{4000kn^2}\sim\frac{n^4}{4000k}$
+
+要在 $M\leq n^{0.8}$ 导出矛盾, 需证 $k\leq n^{0.4}$, $k$ 其实是每两点中垂线上点的个数. 然而这并不一直都成立.
+
+思路 如果有大于 $Cn^{0.4}$ 个点在线上，那么去掉这些和坏线相交的边。需证明这些坏线导致去掉的边数量为 $o(n^2)$
+
+一条坏线可能会导致重边数量超过 $Cn^{0.4}$，因此考虑坏线上点产生的弧线（这些弧线段其实是$H$ 的边），去掉它们。假设 $s$ 个点，每个点 $M$ 个圆，最多扔掉 $2sM$ 条边。同时 $s\leq M+1$，因为否则，最左边的点看到距离数量就大于 $M$，矛盾了.
+
+\subsection{组合方法}
+
+为了解决这个问题，有 Szemeredi-Trotter 定理，它限制了坏线的个数.
+
+\begin{quotation}
+\textbf{Thm.} (Szemeredi-Trotter, another form) $2\leq k\leq \sqrt{n}$, $|G|=n$, 如果 $\geq k$ 个点共线，计入这条线，最终的线数量 $\leq O\big(\frac{n^2}{k^3}\big)$
+\end{quotation}
+
+那么这样一来，去掉的边数=坏线数*每条线扔边数 $\sim\frac{n^2}{n^{0.4\times3}}\times 2M(M+1)>n^2$, 失败。
+
+究其原因，我们对于 $s$ 和 $M$ 的估计太粗糙了, 分段倍增。
+
+考虑 $s\in(T=n^{0.4},2T=2n^{0.4})$，去掉的边数= $\frac{n^2}{T^3}2sM\leq\frac{n^2}{T^3}\times 2(2T)\times n^{0.8}$ 随着 $T$ 不断倍增，去掉的边数等比数列下降，和为 $\frac{n^2}{100}$.
+
+$\sqrt{m}<s\leq100\sqrt{n}$, 去掉的边数量 $\leq C\frac{n^2}{\sqrt{n^3}}\times200\sqrt{n}M$ "模糊地带"，但是只有常数差别
+
+$s>100\sqrt{n}$ 这个时候同样分段倍增，$s\in(T=n^{0.5},2T=2n^{0.5})$，用另一个形式 $O(\frac{n}{k})$, 去掉的边数量 $\leq C\frac{n}{T}\times 2(2T)M$
+
+\notefigure{notes/250521-01.png}
+
+三种情况都满足，因此减去去掉的边后，边数还在 $O(n^2)$ 量级.
+
+\subsection{分析方法}
+
+$b_s$: 线上点大于等于s的线数
+
+$a_s$: 恰好等于s
+
+去掉的边数=$\sum_{s=T_0}^{M}{a_s\times 2sM}\leq2M\big[T_0b_{T_0}+\sum_{s=T_0}^{M}b_s\big]$
+
+$T_0\sim n^{0.4}, b_{T_0}\sim n^{0.8}$;
+
+后面一项分段积分，也可证 $<O(n^{1.2})$
+
+\section{$\max\{|A+A|,|AA|\}$}
+
+$A\subset\mathbb{N}, |A|=n$ 将两个集合画出来，$B=(A+A)\times(AA)$
+
+$|P|=|A+A|\times|AA|=s$
+
+考虑直线 $y=a_i(x-a_j)$, 共 $|L|=n^2$ 条, 而每条线至少 $n$ 个点.
+
+$n^3\leq|I(P,L)|\leq4(s^{\frac{2}{3}}n^{\frac{4}{3}}+s+n^2)\Rightarrow s\geq O(n^\frac{5}{2})$, 故总有一项 $\geq O(n^{1.25})$
+
+\section{r-graph}
+
+\notefigure{notes/250521-02.png}
+
+no monochromatic
+
+\notefigure{notes/250521-03.png}
+
+边数最少的不能 2-染色的 r-图
+
+要证 $a(r)\leq m(r)$, 即证所有边数 $a(r)$ 的 r-图都能被 2-染色; 要证 $b(r)\geq m(r)$, 即证存在边数 $b(r)$ 的 r-图不能被 2-染色. Trivially, $m(r)\leq{2r-1\choose r}\sim\frac{4^r}{\sqrt{r}}$

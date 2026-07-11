@@ -1,0 +1,104 @@
+\chapter{Combinatorics 3.24}
+\label{ch:250324}
+
+\section{flipping a coin}
+
+\notefigure{notes/250324-01.png}
+
+$p\in[0,1]$ 均匀随机，问100次恰有50次H的概率？
+
+\[
+\int_0^1{100\choose50}p^{50}(1-p)^{50}\text{d} p={100\choose50}B(51,51)=\frac{1}{101}
+\]
+
+另外一种：
+
+\[
+\int_0^1{100\choose50}p^{50}(1-p)^{50}\text{d} p=\sum_{r=0}^{50}(-1)^r{100\choose50}{50\choose r}\frac{1}{51+r}=^?\frac{1}{101}
+\]
+
+即证
+\[
+\sum_{r=0}^{50}(-1)^r\frac{101!}{50!50!}\frac{50!}{r!(50-r)!}\frac{1}{51+r}=\sum_{r=0}^{50}(-1)^r{101\choose 51+r}{50+r\choose r}=^?1
+\]
+
+\section{induced subgraph}
+
+$G$ 没有诱导子图是 $P_3$ $\iff$ $G$ 的每个连通块都是团.
+
+左推右.
+
+1. 归纳法，在连通块中先挑一个，它对其他总有一条边，将相应的点加入；直到选到所有连通块中的点.
+
+2. 连通块中任意两点必有路径，因此每个 $P_3$ 必须加边成三角形.
+
+3. 任何一个点，其邻居必定两两相邻. 因此 $v\cup N(v)$ 是一个团. 假设这连通块还有剩余的点，则 $x$ 到$N(v)$ 中某点相邻，那么 $x$ 和 $v$ 相邻.
+
+4. 用等价关系来考虑，简单无向图——对称性，无 induced $P_3$ ——传递性，再加上所有自环即可，由于等价关系$\iff$ 分划.
+
+\section{Turan 定理八股文}
+
+\begin{quotation}
+\textbf{Thm.} (Turan, 1941) n 阶图 $\omega\leq p$, 那么 $m\leq t(n,p)$, $t(n,p)$ 为完全 $p$ 部图 $T(n,p)$ 的边数.
+\end{quotation}
+
+\notefigure{notes/250324-02.png}
+
+我们可估计 $t(n,p)\sim (1-\frac{1}{p})\frac{n^2}{2}$, 一种方法是直接计算，还有一种是看每一个点都被砍了 $1/p$ 条出边.
+
+\textbf{证1.} (from the last proof of Mantel's Thm)
+
+\[
+\rho=\sum_{uv\in E}f(u)f(v)
+\]
+
+不断调整每一对不相邻的非零点对，最后0个数越来越多直到停下, 最后剩下的非零点两两相邻，那么剩下的点个数 $=r\leq p$, 由 Cauchy $m=\rho\leq(1-1/r)\frac{n^2}{2}\leq(1-1/p)\frac{n^2}{2}$.
+
+\textbf{证2.} Induction. 若 $n\leq p$ 自然成立 ($K_n$); $n>p$ 假设 $G$ 是 $m$ 最大的 $n$ 阶 $\omega\leq p$ 图. 有 $\omega(G)=p$ (否则，若 $\omega(G)<p$, 随便加一条边，$\omega$ 至多增加1). 挑出这个 $K_p$ 和其他点，$m\leq{p\choose2}+t(n-p,p)+(n-p)(p-1)$.
+
+\notefigure{notes/250324-03.png}
+
+我们用定义即可证明 $m\leq{p\choose2}+t(n-p,p)+(n-p)(p-1)=t(n,p)$, 考虑 p 部图 $T(n,p)$, 只有国际边，每个国挑出一个代表，提出来，这些代表是 p-团. 剩下的 n-p 个点，每个点都连了 p 个代表中的 p-1 个；剩下的图是 $T(n-p,p)$, 因此等号成立.
+
+\textbf{证3.} 设我们要的图是 $G$, 即 $G$ 满足 n 阶，$\omega\leq p$ 且 m 最大. 往证 $G$ 是完全某部图.
+
+完全 p 部图中，边数最大的就是 $T(n,p)$. 因此如果能证上面的命题，就成功了. 为什么是“某”部图？考虑 $T(5,8)$.
+
+\begin{quotation}
+\textbf{Lemma.} $(x,y)\notin E\Rightarrow \deg x=\deg y$.
+\end{quotation}
+
+否则可以通过复制的方法增加边数. 若 $\deg x<\deg y$, 考虑 $G-x+y^\prime$, 首先复制一个 $y$ 不会增加 $\omega$.
+
+填空题，你可以填 “矛盾” 🤣🤣
+
+\notefigure{notes/250324-04.png}
+
+call back 我们关于 induced $P_3$ 的讨论. 如果不是完全某部图，那么其补图不是每个连通块都是团，因此存在 induced $P_3$. 因此应该填 \textbf{原图存在 induced · |} , 所以根据 Lemma 有 $\deg u=\deg v=\deg w$.
+
+\notefigure{notes/250324-05.png}
+
+\textbf{证4.} (Erdos)
+
+v 为度数最大的点，$A=N(v),B=V\setminus N(v)$，$A$ 中没有 p-团. 先由归纳假设，将 $A$ 补成 $T(|A|,p-1)$, $B$ 国内边全去掉, 然后将 $A,B$ 的点全部连起来形成 $H$.
+
+\notefigure{notes/250324-06.png}
+
+在 $G$ 中，由于 $v$ 的度数最大, $\sum_{x\in B}d_x^G\leq \sum_{x\in B}d_v^G=|A||B|$; 在 $H$ 中，$|A||B|=\sum_{v\in B}d_v^H$. 因此
+\begin{align}
+m_G&=\sum\text{AA 边}+\sum\text{BB 边}+\sum\text{AB 边}\nonumber\\&\leq T(|A|,p-1)+2\sum\text{BB 边}+\sum\text{AB 边}\nonumber\\&=T(|A|,p-1)+\sum_{x\in B}d_x^G\nonumber\\&\leq T(|A|,p-1)+|A||B|\nonumber\\&= m_H\nonumber
+\end{align}
+
+由于 $H$ 是 完全 p-部图，我们有 $m_G\leq m_H\leq t(n,p)$.
+
+\textbf{证5.}
+
+\begin{quotation}
+\textbf{Lemma.} 对任意图 $G$, $\sum_{v\in G}\frac{1}{\deg v+1}\leq\alpha$.
+\end{quotation}
+
+将 $G$ 中的点随机排在直线上，对于每个点来说，如果它的朋友都在它后面 (这件事有 $\frac{1}{\deg v+1}$ 的概率发生)，那么它😊，否则😒. $\mathbb{E}[\#😊]=\sum_{v\in G}\frac{1}{\deg v+1}$. 选出所有😊的点，它们一定构成独立集，因此 $\sum_{v\in G}\frac{1}{\deg v+1}\leq\alpha(G)$
+
+我们考虑关于补图的 Turan: $G$ 满足 $\alpha\leq p$, 那么 $m\geq c(n,p)$.
+
+反设 $m< c(n,p)$

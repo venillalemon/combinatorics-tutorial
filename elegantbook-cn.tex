@@ -18,16 +18,16 @@
 \newcommand*{\kaishu}{\CJKfamily{zhkai}}
 \newcommand*{\fangsong}{\CJKfamily{zhfs}}
 
-\title{ElegantBook：优美的 \LaTeX\ 书籍模板}
-\subtitle{Elegant\LaTeX\ 经典之作}
+\title{Combinatorics Notes}
+\subtitle{组合数学课堂笔记}
 
-\author{Ethan Deng \& Liam Huang \& syvshc \& sikouhjw \& Osbert Wang}
-\institute{Elegant\LaTeX\ Program}
-\date{2026/5/1}
-\version{4.7}
-\bioinfo{自定义}{信息}
+\author{}
+\institute{}
+\date{2025 春}
+\version{0.1}
+\bioinfo{整理}{notes}
 
-\extrainfo{\textcolor{red}{\bfseries 注意：本模板自2023年1月1日起停止维护。然而，鉴于用户群体庞大，自2026年起恢复维护并重新发布。}}
+\extrainfo{组合数学讲义草稿}
 
 \setcounter{tocdepth}{3}
 
@@ -43,6 +43,12 @@
 \colorlet{coverlinecolor}{customcolor}
 \usepackage{cprotect}
 
+\newcommand{\notefigure}[1]{%
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.82\linewidth]{#1}
+  \end{figure}}
+
 \addbibresource[location=local]{reference.bib} % 参考文献，不要删除
 
 \begin{document}
@@ -54,17 +60,14 @@
 
 \mainmatter
 
-\include{chapters/01-introduction}
-\include{chapters/02-settings}
-\include{chapters/03-fonts}
-\include{chapters/04-examples}
-\include{chapters/05-faq}
-\include{chapters/06-changelog}
-
-\nocite{*}
-
-\printbibliography[heading=bibintoc, title=\ebibname]
-\appendix
-
-\include{chapters/appendix-basic-math}
+\include{chapters/notes-250324}
+\include{chapters/notes-250331}
+\include{chapters/notes-250407}
+\include{chapters/notes-250414}
+\include{chapters/notes-250421}
+\include{chapters/notes-250427}
+\include{chapters/notes-250428}
+\include{chapters/notes-250519}
+\include{chapters/notes-250521}
+\include{chapters/notes-250526}
 \end{document}

@@ -1,0 +1,88 @@
+\chapter{Combinatorics 4.21}
+\label{ch:250421}
+
+\section{证明 $r(4,4)=18$}
+
+即证，存在 $K_{17}$ 的 b/y 染色不存在同色 $K_4$. 每个点连16条边，如果9b+7y，9个点二染色必有3b or 4y, 都会形成同色 K4. 因此每个点都是 8b+8y
+
+正17边形排在圆上，距离1248->b, 3567->y. 先考虑同色三角形，8+8=1，1+1=2，2+2=4，4+4=8，3+3=6，5+5=7，6+6=5，7+7=3，因此等腰。
+
+\section{证明 $r(3,3,3)=17$}
+
+K16， 每个点15条边，如果出现一个点连6条同色边，假设同r色，由 $r(3,3)=6$, 1.6点的边有r，有同色K3；2.6点的边无r，因此b/y染色，必有同b/y色K3.
+
+法1
+
+\notefigure{notes/250421-01.jpg}
+
+法2 考虑 $V=\{0,1\}^5$
+
+\section{多染色}
+
+$r(a_1,a_2,a_3,a_4,a_5)\leq 5^{(a_1-1)+(a_2-1)+(a_3-1)+(a_4-1)+(a_5-1)+1}:=n$
+
+每个点来说，存在一种颜色b，这个点连接的b色边有大于n/5条，因此去掉所有剩下的边和点。这个游戏最多可以进行 $(a_1-1)+(a_2-1)+(a_3-1)+(a_4-1)+(a_5-1)+1$ 轮，剩下同样数量的点，其中每个点到其他点的边都是同色的. 因此存在a1个c1，或a2个c2，或..., 这些存在每个都会形成一个同色 $K_{c_k}$.
+
+\section{证明 $r(k,k)=\Omega(k^2)$}
+
+$(k-1)\times K_{k-1}$ 内部染y，国际边染b
+
+(1971, 构造性证明) $r(k,k)=\Omega(k^3)$
+
+\section{(Erdős, 1947) $r(k,k)>2^{k/2},k\geq3$}
+
+$n\leq 2^{k/2}$ yb染色 每k个点形成一个点集 $T$, 坏集合的概率为 $2^{1-{k\choose 2}}$, 则随机染色，坏集合个数的期望 ${n\choose k}2^{1-{k\choose 2}}$
+
+列表：row—染色方案；col—k元子集，如果第i个k元子集在第j个染色下同色，打✔. 按col统计，每个k元子集有$2^{1+{n\choose 2}-{k\choose 2}}$个✔，共计${n\choose k}2^{1+{n\choose 2}-{k\choose 2}}$. 平均下来，每个染色方案平均有${n\choose k}2^{1-{k\choose 2}}$个✔.
+
+如果${n\choose k}2^{1-{k\choose 2}}< 1$那么存在染色，没有✔.
+
+${n\choose k}2^{1-{k\choose 2}}<\frac{2^{k^2/2+1-{k\choose2}}}{k!}=\frac{2^{k/2+1}}{k!}\leq_{k=3}0.95$
+
+Another example
+
+\notefigure{notes/250421-02.png}
+
+\section{Kolmogrov complexity \&\& 回顾 probabilistic method}
+
+$K(x)\leq |x|+c$ A Turing Machine that reads the input $x$ and output $x$.
+
+如何给出一个足够 random 的字符串？如果可以比较快抓出来某个字符串，那么这种方法就是不够 ramdom 的.
+
+一个精心构造的证明(即，一种染色)同样不够random，以至于大多数人构造出 $X=\sum X_T$ 都非常大.
+
+\section{进一步}
+
+$\sqrt{2}<r(k,k)^{1/k}<4$, thus $\sqrt{2}\leq \liminf_{k\to+\infty}r(k,k)^{1/k}\leq\limsup_{k\to+\infty}r(k,k)^{1/k}\leq4$
+
+Prob0. optimize the bound? (or refine the $\leq$ ?)
+
+Prob1. Does there exist limit?
+
+Prob2. lim = ?
+
+\section{Ramsey Problem on Integers}
+
+\begin{quotation}
+\textbf{Thm.} (Schur, also known as \textbf{broken chalk theorem}, 2025.04.21 15:28:03) $\forall c\;\exists N \;\forall \phi:[N]\to[c],\;\exists x+y=z$ with the same color. The minimum $N=S(c)$.
+\end{quotation}
+
+$S(1)=2,S(2)=5$
+
+假设 $\phi$ 是任意染色，构造完全图 $K_{N+1}$ 排列在一条线上，编号1-n+1，$\sigma(i,j)=\phi(|i-j|)$. 由 Ramsey，$N\geq r_c(3)-1$, 存在同色三角形, 即 $x+y=z$.  $\blacksquare$
+
+variation：要求 $x\not=y$
+
+方法1：每种颜色分裂成两个，$r_{2c}(3)$
+
+方法2：$r_c(4)$，4点同色，$a+b+c=d$. 若 $a=b$, 选 $x=a,y=b+c$.
+
+\begin{quotation}
+\textbf{Ext1.} $K_N$ b/y染色，已知 y 色边占总的 90\%，如果 N 足够大, 是否任意满足条件的染色都存在 y 色 $K_{100}$？
+
+实际上，由 Turan，要使得存在 $K_{100}$, 至少 y 边得占 $98/99$
+\end{quotation}
+
+\begin{quotation}
+\textbf{Ext2.} 只关注y色，如果 $N$ 足够大，从1-N挑10\%，是否不能避免存在等差数列？or 存在3长度等差数列 (Erdős-Turan conjecture)
+\end{quotation}

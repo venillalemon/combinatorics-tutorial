@@ -1,0 +1,127 @@
+\chapter{Combinatorics 5.26}
+\label{ch:250526}
+
+组合中的线性代数方法
+
+\section{Pairwise Distance}
+
+Q1: $\mathbb{R}^{d}$ 中至多有 $d+1$ 个点，使得两两距离为1.
+
+反设空间中有 $d+2$ 个点，两两距离1，不妨设其中一个是 $0$, 其他是 $v_1,\dots,v_{d+1}$.
+
+我们有 $M=\begin{bmatrix}v_1&v_2&\cdots&v_{d+1}\end{bmatrix}\in\mathbb{R}^{d\times (d+1)}$, 且
+
+\begin{align*}
+M^TM=\left(\langle v_i,v_j\rangle\right)_{i,j}=\frac{I_{d+1}+\mathbf{1}\mathbf{1}^T}{2}
+\end{align*}
+
+因为当 $i\not= j$ , $\langle v_i,v_j\rangle=\frac{\langle v_i,v_i\rangle+\langle v_j,v_j\rangle-\langle v_i-v_j,v_i-v_j\rangle}{2}=\frac{1}{2}$.
+
+容易得到 $\sigma(\mathbf{1}\mathbf{1}^T)=\{d+1,0\}$, 其中 $0$ 的重数为 $d$. 因此 $r(M^TM)=d+1$, 这与 $r(M)\leq d$ 矛盾. $\square$
+
+Q2: $\mathbb{R}^d$ 中点集，每一对点距离为奇数，最多有几个点？
+
+反设有 $n+1$ 个点两两距离为奇数，参考上面的证明，构造矩阵 $M\in\mathbb{R}^{d\times n}$ 和 $M^TM\in\mathbb{R}^{n\times n}$. 那么 $\langle v_i,v_i\rangle,\langle v_i-v_j,v_i-v_j\rangle$ 都是奇数 ($i\not=j$). 因此 $2M^TM$ 这个矩阵对角线上都是偶数，其他都是奇数，因为对于非对角线元素, $2\langle v_i,v_j\rangle=\langle v_i,v_i\rangle+\langle v_j,v_j\rangle-\langle v_i-v_j,v_i-v_j\rangle$.
+
+为了用满秩导出矛盾，我们计算 $\det(2M^TM)$ 并判断它是否非 0. 一个判断方法是计算 $\bmod 2$ 的行列式，此时
+
+\begin{align*}
+2M^TM\equiv\mathbf{1}\mathbf{1}^T-I_n=\begin{bmatrix}
+0&1&\cdots&1&1\\
+1&0&\cdots&1&1\\
+\vdots&\vdots&\ddots&\vdots&\vdots\\
+1&1&\cdots&0&1\\
+1&1&\cdots&1&0
+\end{bmatrix}:=A\pmod 2
+\end{align*}
+
+根据行列式展开 $\det(A)=\sum_{\sigma}(-1)^{\text{sgn}(\sigma)}\prod_iA_{i,\sigma(i)}\equiv\sum_{\sigma}\prod_iA_{i,\sigma(i)}\pmod 2$, 这个矩阵的行列式等于错排数 $D_n$, 因为对于所有排列 $\sigma$, 只有不选到对角线，即不存在 $i$ 使得 $\sigma(i)=i$ 的时候才产生 1 的贡献. 因此当 $n$ 为偶数时，$2M^TM$ 满秩, 因此当 $n>d$ 时可以导出矛盾.
+
+这样一来，$n$ 奇数时，可以去掉 $M$ 的最后一列使得满秩（也即其 rank 一定至少 $n-1$），那么当 $n-1>d$ 时，导出矛盾. 因此最多 $d+2$ 个点.
+
+以上还可以做一些数论的推导，例如 $\bmod 4,8,16\dots$
+
+Q3: $\mathbb{R}^d$ 中点集，两两距离有两种，最多有几个点？
+
+定义 $f(d)=\max\{|I|:I\subset\mathbb{R}^d,\exists S\subset\mathbb{R},|S|=2,\forall x\not=y\in I, \|x-y\|\in S\}$.
+
+我们首先得到 $f(d)$ 的下界：构造集合 $I_0=\{x\in\{0,1\}^d:\text{wt}(x)=2\}$, 那么 $I$ 中两两距离要么是 $2$, 要么是 $\sqrt{2}$. 因此 $f(d)\geq |I_0|={d\choose 2}$. 同时观察到这些元素属于同一个 $d-1$ 维子空间 $\{(x_1,\dots,x_d):\sum_{i\in[d]}x_i=2\}$, 可得 $f(d-1)\geq{d\choose 2}$ 即 $f(d)\geq\frac{d(d+1)}{2}$.
+
+考虑上界。上世纪先后有 $f(d)\leq\frac{(d+1)(d+4)}{2}$ 和 $f(d)\leq\frac{(d+1)(d+2)}{2}$ 的结果，下面我们依次证明。
+
+假设存在 $m$ 个点满足上面的条件，它们是 $a_1,\dots,a_m$. 定义函数
+\[
+f_k(x)=\left(\|x-a_k\|^2-\delta_1^2\right)\left(\|x-a_k\|^2-\delta_2^2\right):\mathbb{R}^d\mapsto\mathbb{R}
+\]
+
+我们有 $f_i(a_j)=\delta_{ij}\delta_1^2\delta_2^2:=c\delta_{ij}$, 因此 $\{f_1,\dots,f_m\}$ 线性无关. 注意到 $f$ 所在的空间是无穷维的，但是它也可以在更小的一个子空间内。我们展开 $f$ 得到
+
+\[
+f_k(x)=\left(\sum_{i\in[d]}x_i^2-2\sum_ia_{ki}x_i+\sum_{i}a_{ki}^2-\delta_1^2\right)\left(\sum_{i\in[d]}x_i^2-2\sum_ia_{ki}x_i+\sum_{i}a_{ki}^2-\delta_2^2\right)
+\]
+
+因此 $f_k\in\text{span}\left\{1,(x_i)_i,(x_ix_j)_{i\leq j},\left(x_i\sum_{j\in[d]}x_j^2\right)_i,\left(\sum_{i\in[d]}x_i^2\right)^2\right\}$, 它所在的线性空间维数至多 $1+d+{d+1\choose 2}+d+1=\frac{(d+4)(d+1)}{2}$. 由于线性无关组大小必小于维数，有 $f(d)\leq\frac{(d+4)(d+1)}{2}$.
+
+下面我们做一点优化. 我们注意到，只要矩阵 $F=(f_j(a_i))_{i,j}$ 可逆，那么 $f_1,\dots,f_m$ 线性无关. 这是因为反设 $\sum_{i\in[m]}\lambda_if_i(\cdot)=0$, 那么代入所有 $a_j$ 有 $F\lambda=0$, 得到 $\lambda=0$, 故线性无关.
+
+由于优化幅度是从 $f(d)\leq\frac{(d+1)(d+4)}{2}$ 到 $f(d)\leq\frac{(d+1)(d+2)}{2}$ ，我们考虑往线性无关组 $\{f_1,\dots,f_m\}$ 中加入 $d+1$ 个元素，即证 $\{1,x_1,\dots,x_d,f_1,\dots,f_m\}$ 线性无关. 假设 $\sum_{i\in[m]}\lambda_if_i+\sum_{j\in[d]}\mu_jx_j+\tau=0$, 即证所有 $\lambda_i=0$ (因为新加入的向量组也线性无关).
+
+我们观察到加入这些低次的多项式对高次项没有影响，因此我们选择对比最高次项 $\left(\sum_{i\in[d]}x_i^2\right)^2$ 的系数，得到 $\sum_i\lambda_i=0$. 更 formalized 一点，我们计算 $p\not=q$ 时的二次偏导数:
+
+\begin{align*}
+\frac{\partial f_k}{\partial x_p}&=2(x_p-a_{kp})\left(2\|x-a_k\|^2-\delta_1^2-\delta_2^2\right)\\
+\frac{\partial^2 f_k}{\partial x_p\partial x_q}&=8(x_p-a_{kp})(x_q-a_{kq})
+\end{align*}
+
+由于上面的 $\sum_{i\in[m]}\lambda_if_i+\sum_{j\in[d]}\mu_jx_j+\tau=0$ 是函数等式，故可以两边求二次偏导，得到 $\sum_{i\in[m]}\lambda_i(x_p-a_{ip})(x_q-a_{iq})=x_px_q\sum_i\lambda_i-x_p\sum_i\lambda_ia_{iq}-x_q\sum_i\lambda_ia_{ip}+\sum_i\lambda_ia_{ip}a_{iq}=0$. 由于线性无关，得到对所有 $p$ ,
+
+\[
+\sum_i\lambda_i=\sum_i\lambda_ia_{ip}=0.
+\]
+
+现在将每一个 $a_j$ 代入每一个 $\{1,x_1,\dots,x_d,f_1,\dots,f_m\}$, 得到一个 $\mathbb{R}^{(m+d+1)\times m}$ 的矩阵
+
+\begin{align*}
+M=\begin{bmatrix}
+F=(f_i(a_j))_{i,j}\\
+\begin{array}{ccccc}
+&a_1&a_2&\cdots&a_m\\
+1&1&\cdots&1
+\end{array}
+\end{bmatrix}
+\end{align*}
+
+有
+\begin{align*}
+\begin{bmatrix}
+F=(f_i(a_j))_{i,j}\\
+\begin{array}{ccccc}
+&a_1&a_2&\cdots&a_m\\
+1&1&\cdots&1
+\end{array}
+\end{bmatrix}\begin{bmatrix}\lambda_1\\\vdots\\\lambda_m\end{bmatrix}=\begin{bmatrix}c\lambda_1\\\vdots\\c\lambda_m\\0^d\\0\end{bmatrix},
+\end{align*}
+
+这是因为 $\sum_i\lambda_i=\sum_i\lambda_ia_{ip}=0$. 同时根据 $\sum_{i\in[m]}\lambda_if_i+\sum_{j\in[d]}\mu_jx_j+\tau=0$, 我们得到
+
+\begin{align*}
+\begin{bmatrix}\lambda_1&\cdots&\lambda_m&\mu_1&\cdots&\mu_d&\tau\end{bmatrix}\begin{bmatrix}
+F=(f_i(a_j))_{i,j}\\
+\begin{array}{ccccc}
+&a_1&a_2&\cdots&a_m\\
+1&1&\cdots&1
+\end{array}
+\end{bmatrix}=(0^m)^T
+\end{align*}
+
+因此对比两式，有 $c\sum_i\lambda_i^2=0$, 综合前面 $\sum_i\lambda_i=0$ 得到所有 $\lambda_i=0$. 因此 $\{1,x_1,\dots,x_d,f_1,\dots,f_m\}$ 也是一个线性无关组，故 $m+d+1\leq\frac{(d+1)(d+4)}{2}$ 即 $m\leq\frac{(d+1)(d+2)}{2}$.
+
+\section{d 维最大 joint 数}
+
+d维n条线，最大joint个数（要求joint必须是d个线性无关的线交点）
+
+intuition：考虑 d 维中 $dk^{d-1}$ 条线，交点是一个点阵 $k^d$，因此 $\Omega(n^{\frac{d}{d-1}})$
+
+先考虑三维空间，如果 $|J|=m<{d+3\choose3}$ 存在一个 d 次非平凡多项式 $P$ 使得 $J$ 在零点集中. ($\mathbb{R}^d[x_1,x_2,x_3]$ 有 ${d+3\choose3}$ 自由度)
+
+\section{Finite Kakeya conjecture}

@@ -1,0 +1,100 @@
+\chapter{Combinatorics 5.19}
+\label{ch:250519}
+
+\section{Crossing number}
+
+平面图 $m\geq 3n-6$
+
+规定不能三边交叉于一点，$G$ 的 crossing number 定义为最小交叉数量，例如 $K_5$ 至少一个，$\text{Cr}(K_5)=1$.
+
+\begin{quotation}
+\textbf{Thm.} $\text{Cr}(G)\geq m-3n$
+\end{quotation}
+
+证1. 交点变成点，点+1，边+2，得到平面图
+
+证2. 一个交点去一条边，至少少一个交点，因此至多去掉 $\text{Cr}$ 条边
+
+Somehow when $m\geq 4n, \;\text{Cr}\geq\frac{3}{64}{n\choose 4}\Big(\frac{m}{{n\choose 2}}\Big)^3$
+
+\begin{quotation}
+\textbf{Thm.} (1980, Crossing Lemma) $\text{Cr}(G)\geq\frac{m^3}{64n^2}(m\geq 4n)$
+\end{quotation}
+
+$\text{Cr}(K_n)$: 每5个点有1个交点；每个交点被算 $n-4$ 次
+
+归纳法 $W\subseteq V,H=G[W],X(H)=n,Y(H)=m,Z(H)=(H\text{在}G\text{的最优画法下的交点个数})$
+
+有 $Z\geq \text{Cr}\geq Y-3X$. 将 $V$ 中的点以概率 $p$ 选入 $W$, 算期望 $p^4\text{Cr}(G)\geq p^2m-3pn$, 取 $p=\frac{4n}{m}\leq1$ 即可
+
+\section{crossing lemma 应用: 好边}
+
+\begin{quotation}
+\textbf{Thm.} (Szemeredi-Trotter) $n$ points $\in\mathbb{R}^2$, 定义一条直线为好边当且仅当线上有 $\geq k\;(2\leq k\leq \sqrt{n})$ 个点. 这样的好边最多 $O\big(\frac{n^2}{k^3}\big)$ 个.
+\end{quotation}
+
+将好线上的相邻点 (consecutive) 连边，点数 $n$, 边数 $\geq l(k-1)$, 交叉数 $\leq{l\choose 2}$. 比较 $m$ 和 $4n$ 大小.
+
+已知 $k\leq \sqrt{n}$, $m<4n\Rightarrow l<\frac{4n}{k-1}\leq O\big(\frac{n^2}{k^3}\big)$
+
+$m\geq 4n\Rightarrow$ crossing lemma $\frac{l^2}{2}\geq\frac{l^3(k-1)^3}{64n^2}$
+
+这个界是紧的. 假设有均匀点阵 $k\times\frac{n}{k}$, 最上面的一个点出发，有 $\frac{n}{k^2}$ 条好边. 因此总共有 $\frac{n^2}{k^3}$ 条
+
+\section{cl 应用：number of incidences}
+
+$I(P,L)=\{(p,l):p\in P,l\in L,p\in l\}$
+
+\begin{quotation}
+\textbf{Thm.} (Szemeredi-Trotter) $|P|=n,|L|=m,|I(P,L)|\leq 4(m^{\frac{2}{3}}n^{\frac{2}{3}}+m+n)$
+\end{quotation}
+
+连接线上的相邻点，不放假设每条边至少1个点（否则直接删除，$m$ 减少，不影响待证不等式）。点数 $n$, 边数：每条线如果有 $n>1$ 个点，那么有 $n-1$ 条边，共 $|I|-m$ 条. 交点最多 ${m\choose 2}$
+
+crossing lemma: 要么 $|I|-m<4n$, 要么 $\frac{m^2}{2}\geq\text{Cr}\geq\frac{(|I|-m)^3}{64n^2}$
+
+\section{cl 应用：decent graph 最大边数}
+
+erdos：不存在 $K_{2,3}$，因此 $m<n^{1.5}$
+
+考虑每个点为中心画单位圆，圆上的相邻点连边得到图 H.
+
+需保证无重边、自边
+
+1. $\deg(v)<3$ 直接去掉，-2n
+
+2. 两点都是公共邻居 直接去掉，/2
+
+得到 $m_H=\frac{\sum\deg(v)-2n}{2}=m_G-n$, 应用 crossing lemma, 交点最多是每两个圆交两个，因此 $\frac{m_H^3}{64n_H^2}\leq \text{Cr}(H)\leq n^2$，$m_G\leq O(n^{\frac{4}{3}})$
+
+\section{cl 应用：distinct distances}
+
+平面上 $n$ 个点，至少距离种类数
+
+\notefigure{notes/250519-01.png}
+
+可用 Erdos-Szekeres 定理说明这个种类数量为 $\Omega(\sqrt{n})$: 从左到右看，一定存在递增 $\sqrt{n-1}$ 或递减的 $\sqrt{n-1}$ 个点。无论递增递减，从第一个点看，距离至少一定是越来越大的，因此至少 $\sqrt{n-1}-1$ 个距离.
+
+但是以两点为圆心，往外画 $O(\sqrt{n})$ 个圆形，最多 $O(n)$ 个交点，因此这个数量严格大于 $O(\sqrt{n})$; 由于每种距离最多 $O(n^{\frac{4}{3}})$ (上面证过了)，可证至少 $O(n^{\frac{2}{3}})$ 种距离
+
+下证 $O(n^{0.8})$
+
+引入重边图 $kG$ 表示每条边都重复 $k$ 遍. $\text{Cr}(kG)= k^2\text{Cr}(G)$
+
+\begin{quotation}
+$G$ 有重边，重数 $\leq k$, $m\geq 20kn$, 则 $\text{Cr}(G)\geq O(\frac{m^3}{kn^2})$
+\end{quotation}
+
+如果 $k$ 全部满，那么上面的 bound 可以取到；然而如果不满，这个界不够强（为什么？）
+
+对任意的图 $G$, 第一阶段，每个边以 1/k 概率选取；第二阶段，每个重复的只选一个. 每条边留下来的概率<=1/k
+
+Z是这个画法的crossing $\mathbb{E}[Z]\leq Cr/k^2$
+
+每条边活过两个阶段的概率<1/k. Y为边数，每一条边，如果第一阶段唯一的活下来，就成功，因此有留下概率下界 $\frac{m}{k}(1-\frac{1}{k})^{k-1}\leq E[Y]\leq \frac{m}{k}$
+
+either $m\leq4n$, or $Cr\geq m^3/(64n^2)$, 因此综合起来，$\text{Cr}(G)\geq\frac{m^3}{64n^2}-n$
+
+$Z\geq\frac{Y^3}{64n^2}-n$ 期望+jensen不等式 $\frac{\text{Cr}}{k^2}\geq \frac{(\frac{m}{3k})^3}{64n^2}$
+
+(to be continued.)
