@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "lecture_id": "Lec16",
+  "review_count": 40,
+  "resolution": "REJECT_ALL",
+  "reason": "Every proposed replacement has context_score 0.0 and maps a one-letter mathematical variable to an unrelated phrase from the unordered PDF dictionary. The raw token is retained; none of these candidates is used to add lecture content.",
+  "groups": [
+    {
+      "original": "M or m",
+      "proposals": ["M Ei and E", "So we must have r", "It is easy to compute E"],
+      "timestamps_seconds": [[759.81, 760.83], [3993.45, 3996.23], [4002.19, 4003.69], [4005.27, 4006.57], [4108.11, 4110.95], [4111.29, 4113.01], [4121.85, 4123.35], [5241.17, 5242.17], [7101.97, 7103.05], [7711.79, 7712.39], [7782.01, 7783.67], [8317.11, 8318.29], [8345.11, 8345.31], [8368.13, 8369.15]],
+      "count": 14,
+      "decision": "REJECTED"
+    },
+    {
+      "original": "AB",
+      "proposals": ["then X det"],
+      "timestamps_seconds": [[1320.27, 1323.77]],
+      "count": 1,
+      "decision": "REJECTED"
+    },
+    {
+      "original": "P",
+      "proposals": ["Natually w"],
+      "timestamps_seconds": [[5827.31, 5827.51], [5840.05, 5840.25], [5840.25, 5840.53], [5840.53, 5840.71], [5840.95, 5841.15], [5841.15, 5841.21], [5841.21, 5841.43], [5841.43, 5841.45], [5841.45, 5841.53], [5841.53, 5841.55], [5841.55, 5841.57], [5841.57, 5841.61], [5841.61, 5841.65], [5841.65, 5841.69], [5841.69, 5841.71], [5841.71, 5841.77], [5841.77, 5841.83], [5841.83, 5841.95], [5841.95, 5841.97], [5841.97, 5841.99], [5841.99, 5842.01], [5842.01, 5842.11], [5842.11, 5842.23], [5842.23, 5842.27], [8702.31, 8702.67]],
+      "count": 25,
+      "decision": "REJECTED"
+    }
+  ]
+}

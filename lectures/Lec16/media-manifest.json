@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "lecture_id": "Lec16",
+  "downloaded_at": "2026-08-02T21:03:56Z",
+  "parts": [
+    {
+      "part": 1,
+      "url": "https://live.sjtu.edu.cn/vod/31011200112000000000/31011200111320001360/0_1748265263-1748268562.mp4",
+      "path": "media/Lec16_part01.mp4",
+      "status": "completed-verified-reused",
+      "size_bytes": 421107689,
+      "duration_seconds": 3299.963,
+      "sha256": "0eaa567153e7ecf33725e243acfc65d533b867ca26d6c4e76ce47d79979a76b0",
+      "video": {"codec": "h264", "width": 1280, "height": 720, "frame_rate": "25/1", "packet_count": 82501},
+      "audio": {"codec": "aac", "sample_rate": 16000, "channels": 1, "packet_count": 51562}
+    },
+    {
+      "part": 2,
+      "url": "https://live.sjtu.edu.cn/vod/31011200112000000000/31011200111320001360/0_1748270400-1748273699.mp4",
+      "path": "media/Lec16_part02.mp4",
+      "status": "completed-verified",
+      "size_bytes": 419577212,
+      "duration_seconds": 3299.842,
+      "sha256": "6ad33fefb5c2e996a9b14dd021149ad0fc79610f3c6ea645419f5a340ac2aed4",
+      "video": {"codec": "h264", "width": 1280, "height": 720, "frame_rate": "25/1", "packet_count": 82498},
+      "audio": {"codec": "aac", "sample_rate": 16000, "channels": 1, "packet_count": 51561}
+    },
+    {
+      "part": 3,
+      "url": "https://live.sjtu.edu.cn/vod/31011200112000000000/31011200111320001360/0_1748280427-1748283726.mp4",
+      "path": "media/Lec16_part03.mp4",
+      "status": "completed-verified",
+      "size_bytes": 420528728,
+      "duration_seconds": 3299.921,
+      "sha256": "1630576c4305168730585598222c42ae463ee8bab46f2d76569f38eff9618d98",
+      "video": {"codec": "h264", "width": 1280, "height": 720, "frame_rate": "25/1", "packet_count": 82499},
+      "audio": {"codec": "aac", "sample_rate": 16000, "channels": 1, "packet_count": 51561}
+    }
+  ],
+  "concat": {
+    "path": "media/Lec16.mp4",
+    "method": "ffmpeg concat demuxer with stream copy",
+    "reencoded": false,
+    "part_order": ["media/Lec16_part01.mp4", "media/Lec16_part02.mp4", "media/Lec16_part03.mp4"],
+    "size_bytes": 1262295353,
+    "duration_seconds": 9899.726,
+    "expected_duration_seconds": 9899.726,
+    "sha256": "14559e287bee7a489962bc01bfc89e8e22c911c49864b73ed2317bc10f620ae5",
+    "video": {"codec": "h264", "width": 1280, "height": 720, "frame_rate": "25/1", "packet_count": 247498},
+    "audio": {"codec": "aac", "sample_rate": 16000, "channels": 1, "packet_count": 154684},
+    "verification": {
+      "has_video": true,
+      "has_audio": true,
+      "packet_counts_equal_sum_of_parts": true,
+      "full_stream_copy_scan": "passed",
+      "start_decode": "passed",
+      "part1_part2_join_decode": "passed",
+      "part2_part3_join_decode": "passed",
+      "end_decode": "passed"
+    }
+  }
+}

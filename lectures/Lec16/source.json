@@ -1,0 +1,17 @@
+{
+  "schema": 2,
+  "lecture_id": "Lec16",
+  "original_urls": [
+    "https://live.sjtu.edu.cn/vod/31011200112000000000/31011200111320001360/0_1748265263-1748268562.mp4",
+    "https://live.sjtu.edu.cn/vod/31011200112000000000/31011200111320001360/0_1748270400-1748273699.mp4",
+    "https://live.sjtu.edu.cn/vod/31011200112000000000/31011200111320001360/0_1748280427-1748283726.mp4"
+  ],
+  "part_order": ["part01", "part02", "part03"],
+  "downloaded_at": "2026-08-02T21:03:56Z",
+  "processing_status": "downloaded-and-concatenated",
+  "video_file": "media/Lec16.mp4",
+  "duration_seconds": 9899.726,
+  "size_bytes": 1262295353,
+  "sha256": "14559e287bee7a489962bc01bfc89e8e22c911c49864b73ed2317bc10f620ae5",
+  "media_manifest": "lectures/Lec16/media-manifest.json"
+}

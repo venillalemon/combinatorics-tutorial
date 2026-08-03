@@ -14,7 +14,7 @@
 .DS_Store
 clean.bat
 elegant*-cn.pdf
-elegant*-en.pdf
+elegant*-cn-test.pdf
 *.dates
 
 ## Intermediate documents:
@@ -238,7 +238,21 @@ TSWLatexianTemp*
 
 # auto folder when using emacs and auctex
 ./auto/*
+
+## Video-note pipeline: keep metadata/transcripts/LaTeX, ignore large raw media.
+/media/
+*.part
+*.ytdl
+__pycache__/
+*.py[cod]
+!/lectures/*/build-baseline.stdout.log
+!/lectures/*/build-baseline.latex.log
+!/lectures/*/build-final.stdout.log
+!/lectures/*/build-final.latex.log
+!/lectures/*/validation.log
 *.el
+
+.venv/*
 
 # expex forward references with \gathertags
 *-tags.tex

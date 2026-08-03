@@ -1,0 +1,681 @@
+{
+  "schema": 1,
+  "inspected_at": "2026-08-02T20:48:27.215860+00:00",
+  "template_root": "/Users/venillalemon/Documents/tcs/combinatorics-tutorial",
+  "main_tex": "elegantbook-cn.tex",
+  "documentclass": {
+    "name": "elegantbook",
+    "options": "lang=cn,newtx,10pt,scheme=chinese,nofont"
+  },
+  "build_command": [
+    "make"
+  ],
+  "compile_engine": "XeLaTeX",
+  "included_tex": [
+    "elegantbook-cn.tex",
+    "chapters/notations.tex",
+    "chapters/notes-250324.tex",
+    "chapters/notes-250331.tex",
+    "chapters/notes-250407.tex",
+    "chapters/notes-250414.tex",
+    "chapters/notes-250421.tex",
+    "chapters/notes-250428.tex",
+    "chapters/notes-250519.tex",
+    "chapters/notes-250521.tex",
+    "chapters/notes-250526.tex"
+  ],
+  "include_relations": [
+    {
+      "command": "include",
+      "target": "chapters/notations"
+    },
+    {
+      "command": "include",
+      "target": "chapters/notes-250324"
+    },
+    {
+      "command": "include",
+      "target": "chapters/notes-250331"
+    },
+    {
+      "command": "include",
+      "target": "chapters/notes-250407"
+    },
+    {
+      "command": "include",
+      "target": "chapters/notes-250414"
+    },
+    {
+      "command": "include",
+      "target": "chapters/notes-250421"
+    },
+    {
+      "command": "include",
+      "target": "chapters/notes-250428"
+    },
+    {
+      "command": "include",
+      "target": "chapters/notes-250519"
+    },
+    {
+      "command": "include",
+      "target": "chapters/notes-250521"
+    },
+    {
+      "command": "include",
+      "target": "chapters/notes-250526"
+    }
+  ],
+  "packages": [
+    "adforn",
+    "amsmath,mathrsfs,amsfonts,amssymb",
+    "amsthm",
+    "anyfontsize",
+    "appendix",
+    "apptools",
+    "array",
+    "babel",
+    "biblatex",
+    "bm",
+    "booktabs",
+    "calc",
+    "caption",
+    "cprotect",
+    "csquotes",
+    "ctex",
+    "enumerate",
+    "enumitem",
+    "esint",
+    "esvect",
+    "etoolbox",
+    "fancyhdr",
+    "fancyvrb",
+    "fontenc",
+    "fontspec",
+    "footmisc",
+    "geometry",
+    "graphicx",
+    "helvet",
+    "hyperref",
+    "iftex",
+    "indentfirst,comment",
+    "inputenc",
+    "kvoptions",
+    "listings",
+    "luatexja",
+    "makecell,lipsum,hologo",
+    "mtpro2",
+    "multicol",
+    "multicol,multirow",
+    "mwe",
+    "newtxmath",
+    "newtxtext",
+    "pifont,manfnt,bbding",
+    "setspace",
+    "tcolorbox",
+    "tikz",
+    "titlesec",
+    "tocloft",
+    "xcolor",
+    "yhmath"
+  ],
+  "custom_commands": [
+    "ELEGANT@newtheorem@error",
+    "ELEGANT@newtheorem@warning",
+    "ELEGANT@tmp@tl",
+    "ELEGANT@usesamecnt@warning",
+    "afterchap",
+    "appendixname",
+    "appendixtocname",
+    "arraystretch",
+    "assumptionname",
+    "authorname",
+    "axiomname",
+    "baselinestretch",
+    "beforechap",
+    "bibname",
+    "bioinfo",
+    "bmmax",
+    "cbfseries",
+    "ccr",
+    "cfs",
+    "cftchapaftersnum",
+    "cftchappresnum",
+    "chaptermark",
+    "chaptername",
+    "circled",
+    "citshape",
+    "cleardoublepage",
+    "cnormal",
+    "conclusionname",
+    "contentsname",
+    "corollaryname",
+    "cover",
+    "datechange",
+    "dateinfoline",
+    "datename",
+    "definitionname",
+    "dollar",
+    "ebibname",
+    "eitemi",
+    "eitemii",
+    "eitemiii",
+    "ekv",
+    "elegantnewtheorem",
+    "email",
+    "examplename",
+    "exercisename",
+    "extrainfo",
+    "fangsong",
+    "figref",
+    "figurename",
+    "headrule",
+    "headrulewidth",
+    "heiti",
+    "historyname",
+    "indexname",
+    "instancename",
+    "institute",
+    "institutename",
+    "introductionname",
+    "kaishu",
+    "lemmaname",
+    "listfigurename",
+    "listofchanges",
+    "listtablename",
+    "logo",
+    "mailto",
+    "maketitle",
+    "notefigure",
+    "notename",
+    "numberline",
+    "partname",
+    "postulatename",
+    "problemname",
+    "problemsetname",
+    "proofname",
+    "propertyname",
+    "propositionname",
+    "protect",
+    "qed",
+    "question",
+    "remarkname",
+    "rmdefault",
+    "sectionmark",
+    "sfdefault",
+    "solutionname",
+    "songti",
+    "spanishchaptername",
+    "subtitle",
+    "tablename",
+    "tableofcontents",
+    "tabref",
+    "theexam",
+    "theexer",
+    "theoremname",
+    "thepart",
+    "theprob",
+    "ttdefault",
+    "updatename",
+    "version",
+    "versionname",
+    "xchaptertitle"
+  ],
+  "semantic_environments": [
+    "corollary",
+    "definition",
+    "example",
+    "exercise",
+    "lemma",
+    "note",
+    "problem",
+    "proof",
+    "proposition",
+    "remark",
+    "theorem"
+  ],
+  "labels": [
+    "ch:250324",
+    "ch:250331",
+    "ch:250407",
+    "ch:250414",
+    "ch:250421",
+    "ch:250428",
+    "ch:250519",
+    "ch:250521",
+    "ch:250526"
+  ],
+  "label_prefixes": [
+    "ch"
+  ],
+  "sectioning": [
+    {
+      "file": "chapters/notations.tex",
+      "command": "chapter",
+      "title": "记号表"
+    },
+    {
+      "file": "chapters/notes-250324.tex",
+      "command": "chapter",
+      "title": "Combinatorics 3.24"
+    },
+    {
+      "file": "chapters/notes-250324.tex",
+      "command": "section",
+      "title": "flipping a coin"
+    },
+    {
+      "file": "chapters/notes-250324.tex",
+      "command": "section",
+      "title": "induced subgraph"
+    },
+    {
+      "file": "chapters/notes-250324.tex",
+      "command": "section",
+      "title": "Turan 定理八股文"
+    },
+    {
+      "file": "chapters/notes-250331.tex",
+      "command": "chapter",
+      "title": "Combinatorics 3.31"
+    },
+    {
+      "file": "chapters/notes-250331.tex",
+      "command": "section",
+      "title": "$(1,\\sqrt{2"
+    },
+    {
+      "file": "chapters/notes-250331.tex",
+      "command": "section",
+      "title": "三角形数量"
+    },
+    {
+      "file": "chapters/notes-250331.tex",
+      "command": "section",
+      "title": "$\\Delta\\leq50,\\alpha\\leq99$, 问 $\\max n=|G|$"
+    },
+    {
+      "file": "chapters/notes-250331.tex",
+      "command": "section",
+      "title": "树的个数"
+    },
+    {
+      "file": "chapters/notes-250331.tex",
+      "command": "section",
+      "title": "至少几片叶子"
+    },
+    {
+      "file": "chapters/notes-250331.tex",
+      "command": "section",
+      "title": "割点"
+    },
+    {
+      "file": "chapters/notes-250331.tex",
+      "command": "section",
+      "title": "树是一个二部图"
+    },
+    {
+      "file": "chapters/notes-250407.tex",
+      "command": "chapter",
+      "title": "Combinatorics 4.7"
+    },
+    {
+      "file": "chapters/notes-250407.tex",
+      "command": "section",
+      "title": "a combinatorial equality"
+    },
+    {
+      "file": "chapters/notes-250407.tex",
+      "command": "section",
+      "title": "flipping a coin"
+    },
+    {
+      "file": "chapters/notes-250407.tex",
+      "command": "section",
+      "title": "tree embedding"
+    },
+    {
+      "file": "chapters/notes-250407.tex",
+      "command": "section",
+      "title": "some hard problems in graph coloring"
+    },
+    {
+      "file": "chapters/notes-250407.tex",
+      "command": "section",
+      "title": "一些基础不等式"
+    },
+    {
+      "file": "chapters/notes-250407.tex",
+      "command": "section",
+      "title": "定理 0407 系列"
+    },
+    {
+      "file": "chapters/notes-250407.tex",
+      "command": "section",
+      "title": "贪心染色"
+    },
+    {
+      "file": "chapters/notes-250407.tex",
+      "command": "section",
+      "title": "平面直线交点形成的图"
+    },
+    {
+      "file": "chapters/notes-250414.tex",
+      "command": "chapter",
+      "title": "Combinatorics 4.14"
+    },
+    {
+      "file": "chapters/notes-250414.tex",
+      "command": "section",
+      "title": "Independent Set and Chromatic number"
+    },
+    {
+      "file": "chapters/notes-250414.tex",
+      "command": "section",
+      "title": "染色的脑子"
+    },
+    {
+      "file": "chapters/notes-250414.tex",
+      "command": "section",
+      "title": "Erdös-Sós: 证明 $\\overline{d"
+    },
+    {
+      "file": "chapters/notes-250414.tex",
+      "command": "section",
+      "title": "Hamilton Cycle"
+    },
+    {
+      "file": "chapters/notes-250414.tex",
+      "command": "section",
+      "title": "Proof of Erdös-Sós Conjecture"
+    },
+    {
+      "file": "chapters/notes-250414.tex",
+      "command": "section",
+      "title": "染色：另一种视角"
+    },
+    {
+      "file": "chapters/notes-250414.tex",
+      "command": "section",
+      "title": "Nordhaus-Gaddum 关于补图染色的定理"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "chapter",
+      "title": "Ramsey 理论"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "Ramsey Number"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "定理3 \\& 定理4"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "证明 $r(4,4)=18$"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "证明 $r(3,3,3)=17$"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "多染色"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "证明 $r(k,k)=\\Omega(k^2)$"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "(Erdős, 1947) $r(k,k)>2^{k/2"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "Kolmogrov complexity \\&\\& 回顾 probabilistic method"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "进一步"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "Ramsey Problem on Integers"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "Ramsey equation"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "subsection",
+      "title": "$x+ty=z$ 是 Ramsey 方程"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "Rado Theorem"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "r-regular Ramsey"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "Happy Ending Problem"
+    },
+    {
+      "file": "chapters/notes-250421.tex",
+      "command": "section",
+      "title": "ramsey 数的下界"
+    },
+    {
+      "file": "chapters/notes-250428.tex",
+      "command": "chapter",
+      "title": "Combinatorics 4.28"
+    },
+    {
+      "file": "chapters/notes-250428.tex",
+      "command": "section",
+      "title": "\"定理三\""
+    },
+    {
+      "file": "chapters/notes-250428.tex",
+      "command": "section",
+      "title": "回顾概率方法"
+    },
+    {
+      "file": "chapters/notes-250428.tex",
+      "command": "section",
+      "title": "无三角形图可拥有任意大染色数"
+    },
+    {
+      "file": "chapters/notes-250428.tex",
+      "command": "section",
+      "title": "求证 $\\chi\\geq\\omega+2\\Rightarrow|G|\\geq 10$ (finale de autumne 2023)"
+    },
+    {
+      "file": "chapters/notes-250428.tex",
+      "command": "section",
+      "title": "否定 $\\chi\\geq\\omega+k\\Rightarrow|G|\\geq 5k$"
+    },
+    {
+      "file": "chapters/notes-250428.tex",
+      "command": "section",
+      "title": "Erdős: 存在大于等于边数一半的割"
+    },
+    {
+      "file": "chapters/notes-250519.tex",
+      "command": "chapter",
+      "title": "Combinatorics 5.19"
+    },
+    {
+      "file": "chapters/notes-250519.tex",
+      "command": "section",
+      "title": "Crossing number"
+    },
+    {
+      "file": "chapters/notes-250519.tex",
+      "command": "section",
+      "title": "crossing lemma 应用: 好边"
+    },
+    {
+      "file": "chapters/notes-250519.tex",
+      "command": "section",
+      "title": "cl 应用：number of incidences"
+    },
+    {
+      "file": "chapters/notes-250519.tex",
+      "command": "section",
+      "title": "cl 应用：decent graph 最大边数"
+    },
+    {
+      "file": "chapters/notes-250519.tex",
+      "command": "section",
+      "title": "cl 应用：distinct distances"
+    },
+    {
+      "file": "chapters/notes-250521.tex",
+      "command": "chapter",
+      "title": "Combinatorics 5.21"
+    },
+    {
+      "file": "chapters/notes-250521.tex",
+      "command": "section",
+      "title": "cont'd distinct distances"
+    },
+    {
+      "file": "chapters/notes-250521.tex",
+      "command": "subsection",
+      "title": "组合方法"
+    },
+    {
+      "file": "chapters/notes-250521.tex",
+      "command": "subsection",
+      "title": "分析方法"
+    },
+    {
+      "file": "chapters/notes-250521.tex",
+      "command": "section",
+      "title": "$\\max\\{|A+A|,|AA|\\"
+    },
+    {
+      "file": "chapters/notes-250521.tex",
+      "command": "section",
+      "title": "r-graph"
+    },
+    {
+      "file": "chapters/notes-250526.tex",
+      "command": "chapter",
+      "title": "Combinatorics 5.26"
+    },
+    {
+      "file": "chapters/notes-250526.tex",
+      "command": "section",
+      "title": "Pairwise Distance"
+    },
+    {
+      "file": "chapters/notes-250526.tex",
+      "command": "section",
+      "title": "d 维最大 joint 数"
+    },
+    {
+      "file": "chapters/notes-250526.tex",
+      "command": "section",
+      "title": "Finite Kakeya conjecture"
+    },
+    {
+      "file": "chapters/notes-250526.tex",
+      "command": "section",
+      "title": "L016 视频校订笔记"
+    },
+    {
+      "file": "chapters/notes-250526.tex",
+      "command": "subsection",
+      "title": "欧氏空间中的等距点集"
+    },
+    {
+      "file": "chapters/notes-250526.tex",
+      "command": "subsection",
+      "title": "两两为奇整数距离的点集"
+    },
+    {
+      "file": "chapters/notes-250526.tex",
+      "command": "subsection",
+      "title": "两距离点集与多项式方法"
+    }
+  ],
+  "title_metadata": {
+    "title": "Combinatorics Notes",
+    "subtitle": "组合数学课堂笔记",
+    "author": "",
+    "date": "2025 春",
+    "version": "0.1"
+  },
+  "numbering_commands": [
+    "\\setcounter{tocdepth}{3}",
+    "\\setcounter{tocdepth}{1}",
+    "\\renewcommand{\\thepart}{第\\zhnumber{\\arabic{part}}部分}",
+    "\\renewcommand{\\theoremname}{Théorème}",
+    "\\setcounter{secnumdepth}{5}",
+    "\\counterwithin{ELEGANT@samecnt}{\\ELEGANT@thmcnt}",
+    "\\setcounter{exam}{0}",
+    "\\renewcommand{\\theexam}{\\thechapter.\\arabic{exam}}",
+    "\\setcounter{exer}{0}",
+    "\\renewcommand{\\theexer}{\\thechapter.\\arabic{exer}}",
+    "\\setcounter{prob}{0}",
+    "\\renewcommand{\\theprob}{\\thechapter.\\arabic{prob}}"
+  ],
+  "notation_files": [
+    "chapters/notations.tex"
+  ],
+  "bibliography": [
+    "reference.bib"
+  ],
+  "has_index": false,
+  "preamble_sha256": "1777bcbb1bd8929295e767732f3200c80575d3d7c9f4c3fa0e2a58d9473424bd",
+  "class_sha256": "d2cdb802b3de46b1d659d1a8eb36979aecd761402d3e95296936f433f97549eb",
+  "file_sha256": {
+    "elegantbook-cn.tex": "8c5aeeffae791cf193b440bdd0159e4a620757d7e86c9bcf3b56837ce5ae5aaf",
+    "chapters/notations.tex": "ef860969ed308cd3f5a6beae3fc0b167fff1bb66004631449981a353c37268a7",
+    "chapters/notes-250324.tex": "af707eed451b9cc14268b7e130f6ccc0c3abd4e552e96c3cef13dc4356829be5",
+    "chapters/notes-250331.tex": "078c6b2e51355b916d587ba2f09bbe2969cbb4873cd647cc50357add843d1057",
+    "chapters/notes-250407.tex": "9542765f60b93b2f69cc4da7329b5fe4e5a21ef24ec1af5d77fbc43551ffcee1",
+    "chapters/notes-250414.tex": "f39eb10dd6a82ace618fb07b408ec0e3a101ab28ca09d3b8f8a2c83c6a210b6b",
+    "chapters/notes-250421.tex": "376538aac2fe085fb335e4cc73e8708b99e657ea25adb12af4706081732fc9bd",
+    "chapters/notes-250428.tex": "c2e57df5149437d92a088027298988e7253cf46b76cd6228c863ed8238ed78ea",
+    "chapters/notes-250519.tex": "d9fa2c1b563ffb403a2b8733cfc4dd5064b455bf70ba1d007cd2592ff6c69028",
+    "chapters/notes-250521.tex": "425b504355c58370555f942185299a1ab12e37d7dd05779e4c1476c0ae9746ca",
+    "chapters/notes-250526.tex": "b93c41f345065c24c0c7bce01c82133d57e32f146be55f2300734080c1095bcf",
+    "elegantbook.cls": "d2cdb802b3de46b1d659d1a8eb36979aecd761402d3e95296936f433f97549eb"
+  },
+  "allowed_insertion_candidates": [
+    "chapters/notations",
+    "chapters/notes-250324",
+    "chapters/notes-250331",
+    "chapters/notes-250407",
+    "chapters/notes-250414",
+    "chapters/notes-250421",
+    "chapters/notes-250428",
+    "chapters/notes-250519",
+    "chapters/notes-250521",
+    "chapters/notes-250526"
+  ],
+  "baseline_pdf": "/Users/venillalemon/Documents/tcs/combinatorics-tutorial/elegantbook-cn.pdf",
+  "baseline_pdf_sha256": "bd8a0e21590915cde9f5eb8cc63d7837e5856ea2a89edc915c7da438a374114d"
+}

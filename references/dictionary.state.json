@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "reference_pdf": "/Users/venillalemon/Documents/tcs/combinatorics-tutorial/CS477Notes.pdf",
+  "pdf_sha256": "23295dd3eefb9dae722b33d1b479e94deb294e76bea0b8894101ef47ff752062",
+  "extraction_method": "pdftotext",
+  "cleaned_text_sha256": "ffe90f1d629f15f46b1139753ea8a513dba41672c8006f38ef5a1e313f2c81e4",
+  "dictionary_sha256": "b24bfc1c488d13439d076fab3d4d8ab6bb6bbb57e12aa37f165a83bd557bc540",
+  "entry_count": 453,
+  "built_at": "2026-08-02T20:19:11.229227+00:00",
+  "ordered": false,
+  "page_numbers_retained": false
+}

@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "lecture_id": "Lec16",
+  "continuous_timeline": true,
+  "junctions": [
+    {
+      "name": "part01_to_part02",
+      "time_seconds": 3299.963,
+      "timecode": "00:54:59.963",
+      "video_observation": "The board and room state are unchanged across the files; the embedded classroom clock advances from approximately 13:44:57 to 13:54:59.",
+      "audio_transcript_observation": "The surrounding interval is a class break with silence/ambient sound. A silence hallucination in the raw ASR is not treated as lecture speech.",
+      "content_jump": "technical recording gap of about ten minutes during a break; no academic content loss is evidenced",
+      "duplicate": false,
+      "cut_sentence": false
+    },
+    {
+      "name": "part02_to_part03",
+      "time_seconds": 6599.805,
+      "timecode": "01:49:59.805",
+      "video_observation": "The classroom clock advances normally from approximately 14:49:58 to 14:49:59 and the board is unchanged.",
+      "audio_transcript_observation": "Speech and timestamps remain continuous across the boundary.",
+      "content_jump": false,
+      "duplicate": false,
+      "cut_sentence": false
+    }
+  ]
+}

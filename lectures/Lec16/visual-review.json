@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "lecture_id": "Lec16",
+  "enabled": true,
+  "scene_detection_frames": 1,
+  "periodic_frames": 165,
+  "contact_sheets": 9,
+  "junction_frames": 20,
+  "use": "Board images were used to check displayed variables, polynomial definitions, dimension counts, the rock-paper-scissors encoding, the joints argument, and both video junctions.",
+  "content_source_policy": "Images corroborate audio/board content only; they do not supply material absent from the lecture.",
+  "uncertain_items": [
+    "The exact mod-16 refinement following the odd-distance argument is not uniquely legible or audible.",
+    "The spoken orientation convention for the rock-paper-scissors encoding is fast; the notes retain the formula visible on the board and flag convention dependence."
+  ]
+}

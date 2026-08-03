@@ -1,0 +1,3 @@
+file '/Users/venillalemon/Documents/tcs/combinatorics-tutorial/media/Lec16_part01.mp4'
+file '/Users/venillalemon/Documents/tcs/combinatorics-tutorial/media/Lec16_part02.mp4'
+file '/Users/venillalemon/Documents/tcs/combinatorics-tutorial/media/Lec16_part03.mp4'

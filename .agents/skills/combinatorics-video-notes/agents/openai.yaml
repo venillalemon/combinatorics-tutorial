@@ -1,0 +1,4 @@
+interface:
+  display_name: "组合数学视频笔记"
+  short_description: "结合视频、无序 PDF 词典和既有模板生成可追溯组合数学讲义"
+  default_prompt: "Use $combinatorics-video-notes with a video URL, lecture id, unordered reference PDF, and LaTeX template root to prepare validated notes."

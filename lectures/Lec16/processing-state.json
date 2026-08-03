@@ -1,0 +1,93 @@
+{
+  "schema": 2,
+  "lecture_id": "Lec16",
+  "stages": {
+    "template_baseline": {
+      "status": "completed",
+      "updated_at": "2026-08-02T20:48:37.302044+00:00",
+      "template_root": "/Users/venillalemon/Documents/tcs/combinatorics-tutorial",
+      "main_tex": "elegantbook-cn.tex",
+      "contract_sha256": "b737e33faf1e5f1660a56e6e7876ab0fd16830959fc382c953148cbe22a38559",
+      "pdf": "/Users/venillalemon/Documents/tcs/combinatorics-tutorial/elegantbook-cn.pdf",
+      "pdf_sha256": "bd8a0e21590915cde9f5eb8cc63d7837e5856ea2a89edc915c7da438a374114d"
+    },
+    "download": {
+      "status": "completed",
+      "updated_at": "2026-08-02T21:03:56Z",
+      "input_urls": [
+        "https://live.sjtu.edu.cn/vod/31011200112000000000/31011200111320001360/0_1748265263-1748268562.mp4",
+        "https://live.sjtu.edu.cn/vod/31011200112000000000/31011200111320001360/0_1748270400-1748273699.mp4",
+        "https://live.sjtu.edu.cn/vod/31011200112000000000/31011200111320001360/0_1748280427-1748283726.mp4"
+      ],
+      "part_sha256": [
+        "0eaa567153e7ecf33725e243acfc65d533b867ca26d6c4e76ce47d79979a76b0",
+        "6ad33fefb5c2e996a9b14dd021149ad0fc79610f3c6ea645419f5a340ac2aed4",
+        "1630576c4305168730585598222c42ae463ee8bab46f2d76569f38eff9618d98"
+      ]
+    },
+    "concat": {
+      "status": "completed",
+      "updated_at": "2026-08-02T21:03:56Z",
+      "method": "ffmpeg concat demuxer with stream copy",
+      "reencoded": false,
+      "output_sha256": "14559e287bee7a489962bc01bfc89e8e22c911c49864b73ed2317bc10f620ae5",
+      "duration_seconds": 9899.726
+    },
+    "audio": {
+      "status": "completed",
+      "updated_at": "2026-08-02T21:05:00Z",
+      "input_sha256": "14559e287bee7a489962bc01bfc89e8e22c911c49864b73ed2317bc10f620ae5",
+      "output_sha256": "09afcd30b2ec67e3ee7ce0b5a24f1421d81b1504368473d2b121f4a6a7394a28",
+      "sample_rate": 16000,
+      "channels": 1,
+      "path": "media/Lec16_audio.wav"
+    },
+    "transcribe": {
+      "status": "completed",
+      "updated_at": "2026-08-02T22:02:16.576261+00:00",
+      "input_sha256": "09afcd30b2ec67e3ee7ce0b5a24f1421d81b1504368473d2b121f4a6a7394a28",
+      "parameters": {
+        "model": "mlx-community/whisper-large-v3-turbo",
+        "language": "zh",
+        "word_timestamps": true
+      },
+      "output_sha256": "31da718abedd05a90a988eefb628db22f507e2ea0bbcdfdf8a859903f27488f4",
+      "immutable": true
+    },
+    "dictionary": {
+      "status": "completed",
+      "updated_at": "2026-08-02T22:02:22.922677+00:00",
+      "pdf_sha256": "23295dd3eefb9dae722b33d1b479e94deb294e76bea0b8894101ef47ff752062",
+      "dictionary_sha256": "b24bfc1c488d13439d076fab3d4d8ab6bb6bbb57e12aa37f165a83bd557bc540"
+    },
+    "correct": {
+      "status": "completed",
+      "updated_at": "2026-08-02T22:02:37.836728+00:00",
+      "parameters": {
+        "raw_sha256": "31da718abedd05a90a988eefb628db22f507e2ea0bbcdfdf8a859903f27488f4",
+        "dictionary_sha256": "b24bfc1c488d13439d076fab3d4d8ab6bb6bbb57e12aa37f165a83bd557bc540",
+        "algorithm": 1
+      },
+      "output_sha256": "5479748b1679f755a58ba08d7518c871100f0f1488a88583ba2f25bd47f1c4fe",
+      "correction_count": 40,
+      "auto_count": 0,
+      "review_count": 40
+    },
+    "frames": {
+      "status": "completed",
+      "updated_at": "2026-08-02T22:03:49.050789+00:00",
+      "input_sha256": "14559e287bee7a489962bc01bfc89e8e22c911c49864b73ed2317bc10f620ae5",
+      "parameters": {
+        "scene_threshold": 0.35
+      },
+      "count": 1
+    },
+    "final_compile": {
+      "status": "completed",
+      "updated_at": "2026-08-02T22:36:29.564352+00:00",
+      "pdf": "/Users/venillalemon/Documents/tcs/combinatorics-tutorial/elegantbook-cn.pdf",
+      "pdf_sha256": "e59314fce6f1fc7e6deca1f257ddc130d719a2180892ba6e8766c12d7dc4496f",
+      "validation_log": "/Users/venillalemon/Documents/tcs/combinatorics-tutorial/lectures/Lec16/validation.log"
+    }
+  }
+}
